@@ -4,8 +4,12 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .body {
-  font: 13px "Roboto", sans-serif;
+  font: 13px Roboto, sans-serif;
   min-width: 320px;
   color: #1d1d1d;
 }
@@ -21,7 +25,7 @@
   }
 
   &__content {
-    max-width: 1440px;
+    max-width: 1024px;
     margin: 0 auto;
     padding: 16px 5px;
     display: flex;
@@ -53,7 +57,7 @@
     padding: 0 5px;
   }
 
-  &--desctop {
+  &--desktop {
     display: none;
   }
 
@@ -80,7 +84,7 @@
     border-radius: 2px;
 
     &::placeholder {
-      color: #1d1d1d;
+      color: rgba($color: #626262, $alpha: 0.5);
     }
   }
 
@@ -129,7 +133,7 @@
       display: none;
     }
 
-    &--desctop {
+    &--desktop {
       display: block;
     }
   }
@@ -209,7 +213,7 @@
 
 .search {
   display: flex;
-  max-width: 1440px;
+  max-width: 1024px;
   margin: 0 auto 24px;
   padding: 0 5px;
   font-size: 13px;
@@ -255,7 +259,7 @@
 // MAIN START
 
 .main-content {
-  max-width: 1440px;
+  max-width: 1024px;
   margin: 0 auto 55px;
   padding: 0 5px;
 
@@ -329,7 +333,7 @@
   padding: 50px 0 40px;
 
   &__inner {
-    max-width: 1440px;
+    max-width: 1024px;
     margin: 0 auto;
     padding: 0 5px;
   }
