@@ -1,7 +1,529 @@
 @import "utils";
-@import "fonts";
-@import "typography";
 
-body {
-  background: $c-gray;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.body {
+  font: 13px Roboto, sans-serif;
+  min-width: 320px;
+  color: #1d1d1d;
+}
+
+// HEADER START
+
+.page-header {
+  margin-bottom: 55px;
+
+  &__content-wrapper {
+    box-shadow: 0 0 16px rgba(38, 38, 38, 0.16);
+    margin-bottom: 20px;
+  }
+
+  &__content {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 16px 5px;
+    display: flex;
+    align-items: center;
+  }
+
+  @media only screen and (min-width: 640px) {
+    &__content {
+      padding: 16px 40px;
+    }
+  }
+}
+
+.header-logo {
+  margin-right: 20px;
+
+  &__image {
+    display: block;
+  }
+}
+
+.delivery-setup {
+  margin: 0 50px 0 auto;
+  font-size: 13px;
+
+  &--mobile {
+    display: flex;
+    margin: 0;
+    padding: 0 5px;
+  }
+
+  &--desktop {
+    display: none;
+  }
+
+  &__place-label {
+    &--mobile {
+      flex: 0 1 100%;
+      max-width: 100%;
+    }
+  }
+
+  &__time-label {
+    &--mobile {
+      flex: 0 0 81px;
+      max-width: 81px;
+    }
+  }
+
+  &__time,
+  &__place {
+    height: 40px;
+    line-height: 40;
+    padding: 0 11px;
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+
+    &::placeholder {
+      color: rgba($color: #626262, $alpha: 0.5);
+    }
+  }
+
+  &__time {
+    width: 65px;
+  }
+
+  &__place {
+    padding-left: 36px;
+    width: 215px;
+    background: url("../images/location-icon.svg") 11px 50% no-repeat;
+
+    &--mobile {
+      width: 100%;
+    }
+  }
+
+  &__place-text {
+    font-size: 11px;
+    font-weight: 300;
+    padding: 0 7px;
+
+    &--mobile {
+      padding: 0;
+      margin-bottom: 8px;
+      display: block;
+    }
+  }
+
+  @media only screen and (min-width: 420px) {
+    &__place-text {
+      font-size: inherit;
+    }
+  }
+
+  @media only screen and (min-width: 640px) {
+    font-size: 16px;
+
+    &--mobile {
+      padding: 0 40px;
+    }
+  }
+
+  @media only screen and (min-width: 820px) {
+    &--mobile {
+      display: none;
+    }
+
+    &--desktop {
+      display: block;
+    }
+  }
+
+  @media only screen and (min-width: 940px) {
+    margin: 0 90px 0 auto;
+
+    &__place {
+      width: 292px;
+    }
+  }
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  font-size: 11px;
+
+  &__sign-in,
+  &__register {
+    display: block;
+    height: 40px;
+    border-radius: 2px;
+    text-decoration: none;
+    line-height: 40px;
+    font-weight: 500;
+    transition: color 0.3s, background 0.3s, border 0.3s;
+    cursor: pointer;
+  }
+
+  &__sign-in {
+    color: #1d1d1d;
+    border: 1px solid #e0e0e0;
+    padding: 0 19px;
+    margin-right: 16px;
+    background: #fff;
+
+    &:hover {
+      background: #262626;
+      color: #fff;
+      border: 1px solid #262626;
+    }
+  }
+
+  &__register {
+    background: #262626;
+    color: #fff;
+    border: 1px solid #262626;
+    padding: 0 15px;
+
+    &:hover {
+      color: #1d1d1d;
+      border: 1px solid #e0e0e0;
+      background: #fff;
+    }
+  }
+
+  &__basket {
+    display: none;
+  }
+
+  @media only screen and (min-width: 420px) {
+    font-size: 13px;
+
+    &__register {
+      margin-right: 27px;
+    }
+
+    &__basket {
+      display: inline;
+    }
+  }
+
+  @media only screen and (min-width: 820px) {
+    margin-left: 0;
+  }
+}
+
+.search {
+  display: flex;
+  max-width: 1024px;
+  margin: 0 auto 24px;
+  padding: 0 5px;
+  font-size: 13px;
+
+  &__input {
+    flex: 1 1 100%;
+    height: 59px;
+    border: none;
+    border-bottom: 1px solid rgba($color: #757575, $alpha: 0.3);
+    background: url("../images/search.svg") 0 50% / 16px auto no-repeat;
+    padding: 0 30px;
+    outline: none;
+    transition: border-bottom 0.3s;
+
+    &::placeholder {
+      color: rgba($color: #626262, $alpha: 0.5);
+    }
+
+    &:focus {
+      border-bottom: 1px solid #49a144;
+    }
+  }
+
+  @media only screen and (min-width: 420px) {
+    font-size: 16px;
+
+    &__input {
+      background-size: auto auto;
+    }
+  }
+
+  @media only screen and (min-width: 640px) {
+    padding: 0 40px;
+  }
+
+  @media only screen and (min-width: 821px) {
+    margin: 0 auto;
+  }
+}
+
+// HEADER END
+
+// MAIN START
+
+.main-content {
+  max-width: 1024px;
+  margin: 0 auto 55px;
+  padding: 0 5px;
+
+  &__title {
+    font-size: 22px;
+    font-weight: 400;
+    margin: 0 0 16px;
+  }
+
+  @media only screen and (min-width:640px) {
+    padding: 0 40px;
+  }
+}
+
+.restaurants-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-gap: 16px;
+  justify-items: center;
+
+  &__item {
+    width: 100%;
+    padding-bottom: 20px;
+  }
+
+  &__item-link {
+    display: block;
+    text-decoration: none;
+    color: #1d1d1d;
+    transition: background 0.3s;
+
+    &:hover {
+      background: rgba($color: #757575, $alpha: 0.04);
+    }
+  }
+
+  &__item-image {
+    display: block;
+    width: 100%;
+    max-height: 100%;
+    margin-bottom: 16px;
+  }
+
+  &__item-title {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0 0 8px;
+  }
+
+  &__item-menu {
+    height: 17px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+    color: #626262;
+    margin: 0 0 8px;
+  }
+
+  &__item-time {
+    margin: 0;
+  }
+}
+
+// MAIN END
+
+// FOOTER START
+
+.page-footer {
+  background: #262626;
+  padding: 50px 0 40px;
+
+  &__inner {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 5px;
+  }
+
+  &__separator {
+    border: none;
+    border-bottom: 1px solid rgba($color: #fff, $alpha: 0.4);
+    margin: 0;
+
+    &--footer-logo {
+      margin-bottom: 32px;
+    }
+
+    &--social-and-info {
+      margin-bottom: 24px;
+    }
+
+    &--app {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 20px;
+
+    &--last {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__list-item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &__list-item-link {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #49a144;
+    }
+  }
+
+  &__app-list {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 24px;
+    justify-content: center;
+  }
+
+  &__app-list-item:not(:last-child) {
+    margin-right: 25px;
+  }
+
+  &__copy-and-terms {
+    color: #fff;
+    font-size: 11px;
+  }
+
+  &__privacy-link,
+  &__terms-link {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #49a144;
+    }
+  }
+
+  &__copy,
+  &__privacy {
+    margin-bottom: 24px;
+  }
+
+  @media only screen and (min-width: 640px) {
+    &__inner {
+      padding: 0 40px;
+    }
+
+    &__content {
+      display: flex;
+    }
+
+    &__content-item {
+      flex: 0 1 33.33%;
+      max-width: 33.33%;
+      padding-right: 10px;
+    }
+
+    &__copy-and-terms {
+      display: flex;
+    }
+
+    &__copy,
+    &__privacy,
+    &__terms {
+      flex: 0 1 33.33%;
+      max-width: 33.33%;
+      margin-bottom: 0;
+      padding-right: 10px;
+    }
+  }
+}
+
+.footer-logo {
+  margin-bottom: 40px;
+}
+
+.lang {
+  height: 40px;
+  width: 176px;
+  line-height: 40px;
+  padding-left: 48px;
+  border: none;
+  border-radius: 2px;
+  appearance: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #fff;
+  background: url("../images/world-icon.svg") 16px 50% no-repeat, url("../images/arrow-down.svg") calc(100% - 8px) 50% no-repeat;
+  background-color: #3b3b3b;
+}
+
+.social {
+  margin-bottom: 40px;
+
+  &__title {
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+  }
+
+  &__title-first-letter {
+    color: #49a144;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+  }
+
+  &__list-item:not(:last-child) {
+    margin-right: 15px;
+  }
+
+  &__link {
+    display: block;
+
+    & path {
+      transition: fill 0.3s;
+    }
+
+    &:hover path {
+      fill: #49a144;
+    }
+  }
+
+  svg {
+    display: block;
+  }
+}
+
+// FOOTER END
+
+.to-top {
+  position: fixed;
+  right: 16px;
+  bottom: 24px;
+  width: 64px;
+  height: 64px;
+  background: #59bd5a url("../images/to-top-icon.svg") 50% 50% no-repeat;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  
+  &:hover {
+    background-color: #49a144;
+  }
+
+  @media only screen and (min-width: 640px) {
+    width: 80px;
+    height: 80px;
+  }
 }
