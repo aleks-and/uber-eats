@@ -162,6 +162,7 @@ html {
     line-height: 40px;
     font-weight: 500;
     transition: color 0.3s, background 0.3s, border 0.3s;
+    cursor: pointer;
   }
 
   &__sign-in {
@@ -169,6 +170,7 @@ html {
     border: 1px solid #e0e0e0;
     padding: 0 19px;
     margin-right: 16px;
+    background: #fff;
 
     &:hover {
       background: #262626;
